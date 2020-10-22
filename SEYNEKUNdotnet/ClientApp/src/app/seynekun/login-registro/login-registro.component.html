@@ -1,0 +1,28 @@
+
+    <form class="formulario" #formRegister="ngForm" (ngSubmit)="onRegister(formRegister)">
+      <h1>REGISTRAR</h1>
+      <div class="contenedor">
+        <div class="input-contenedor">
+          <i class="fas fa-user icon"></i>
+          <input type="text" #nombre="ngModel" name="nombre" placeholder="Nombre Completo" [(ngModel)]="usuario.nombre" required/>
+        </div>
+
+        <div class="input-contenedor">
+          <i class="fas fa-envelope icon"></i>
+          <input type="text" #email="ngModel" name="email" placeholder="Correo Electronico" [(ngModel)]="usuario.email" required/>
+        </div>
+
+        <div class="input-contenedor">
+          <i class="fas fa-key icon"></i>
+          <input type="password" #password="ngModel" name="password" placeholder="Contraseña" [(ngModel)]="usuario.password" required/>
+        </div>
+        <input type="submit" value="Registrate" class="button" />
+        <p>
+          Al registrarte, aceptas nuestras Condiciones de uso y Política de
+          privacidad.
+        </p>
+        <p>
+          ¿Ya tienes una cuenta? <a class="" [routerLink]="['/login']">Iniciar Sesion</a>
+        </p>
+      </div>
+    </form>

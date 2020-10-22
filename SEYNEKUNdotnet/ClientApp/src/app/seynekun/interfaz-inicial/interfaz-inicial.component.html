@@ -1,0 +1,75 @@
+<mat-drawer-container class="example-container" [hasBackdrop]="true">
+  <mat-drawer #drawer mode="push">
+    <mat-nav-list width="120 text-center">
+      <!-- rounded-circle -->
+      <div class="bottom-border pb-2 py-2 ">
+        <img mat-list-item src="./assets/bg_1.jpg" width="120" class=" mr-3 mb-3 d-block mx-auto text-center">
+      </div>
+
+      <a mat-list-item routerLink="/">
+        <mat-icon>insert_chart_outlined</mat-icon>
+        <span class="nav-link" routerLink="/dashboard">CLIENTE</span>
+      </a>
+
+      <a mat-list-item routerLink="/">
+        <mat-icon>home</mat-icon>
+        <span class="nav-link">FICHA TECNICA</span>
+      </a>
+
+      <a mat-list-item routerLink="/">
+        <mat-icon>home</mat-icon>
+        <span class="nav-link">PARAMETROS DE REFERENCIA</span>
+      </a>
+
+      <a mat-list-item routerLink="/">
+        <mat-icon>home</mat-icon>
+        <span class="nav-link">MATERIA PRIMA</span>
+      </a>
+
+      <a mat-list-item routerLink="/">
+        <mat-icon>home</mat-icon>
+        <span class="nav-link">PROCESOS DE PRODUCCION</span>
+      </a>
+
+      <a mat-list-item routerLink="/">
+        <mat-icon>home</mat-icon>
+        <span class="nav-link">MANO DE OBRA</span>
+      </a>
+
+      <a mat-list-item routerLink="/">
+        <mat-icon>home</mat-icon>
+        <span class="nav-link">TRM</span>
+      </a>
+
+      <a mat-list-item routerLink="/">
+        <mat-icon>home</mat-icon>
+        <span class="nav-link">MARGEN DE CONTRIBUCION</span>
+      </a>
+
+      <a mat-list-item routerLink="/">
+        <mat-icon>home</mat-icon>
+        <span class="nav-link">COSTEO GENERAL</span>
+      </a>
+
+      <a mat-list-item routerLink="/">
+        <mat-icon>home</mat-icon>
+        <span class="nav-link">COSTOS Y GASTOS MENSUALES</span>
+      </a>
+
+      <a mat-list-item routerLink="/">
+        <mat-icon>exit_to_app</mat-icon>
+        <span class="nav-link">Exit</span>
+      </a>
+
+    </mat-nav-list>
+  </mat-drawer>
+  <mat-drawer-content>
+
+    <button class="btn" (click)="drawer.toggle()"><span class="material-icons"> format_align_justify </span></button>
+
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>
+
