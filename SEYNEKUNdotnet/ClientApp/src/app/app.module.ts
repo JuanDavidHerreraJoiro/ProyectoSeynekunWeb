@@ -12,7 +12,6 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ClienteRegistroComponent } from './seynekun/cliente-registro/cliente-registro.component';
 import { ClienteConsultarComponent } from './seynekun/cliente-consultar/cliente-consultar.component';
-import { ClienteModificarEliminarComponent } from './seynekun/cliente-modificar-eliminar/cliente-modificar-eliminar.component';
 import { ClienteService } from './services/cliente.service';
 import { LoginComponent } from './seynekun/login/login.component';
 import { LoginRegistroComponent } from './seynekun/login-registro/login-registro.component';
@@ -20,6 +19,7 @@ import { InterfazInicialComponent } from './seynekun/interfaz-inicial/interfaz-i
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material';
 import { HomeSeynekunComponent } from './seynekun/home-seynekun/home-seynekun.component';
+import { ClienteModificarEliminarComponent } from './seynekun/cliente-modificar-eliminar/cliente-modificar-eliminar.component';
 
 
 @NgModule({
@@ -31,11 +31,11 @@ import { HomeSeynekunComponent } from './seynekun/home-seynekun/home-seynekun.co
     FetchDataComponent,
     ClienteRegistroComponent,
     ClienteConsultarComponent,
-    ClienteModificarEliminarComponent,
     LoginComponent,
     LoginRegistroComponent,
     InterfazInicialComponent,
     HomeSeynekunComponent,
+    ClienteModificarEliminarComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

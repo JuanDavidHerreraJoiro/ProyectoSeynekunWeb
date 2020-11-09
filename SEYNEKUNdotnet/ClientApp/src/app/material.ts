@@ -12,6 +12,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
+import { MatTreeModule } from '@angular/material/tree';
 
 const myModules = [
   MatToolbarModule,
@@ -27,6 +28,7 @@ const myModules = [
   MatDialogModule,
   MatOptionModule,
   MatSelectModule,
+  MatTreeModule,
 ];
 
 @NgModule({

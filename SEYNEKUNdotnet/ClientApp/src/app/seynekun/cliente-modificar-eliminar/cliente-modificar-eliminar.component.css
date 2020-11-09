@@ -1,0 +1,33 @@
+.example-tree-invisible {
+    display: none;
+}
+
+.example-tree ul,
+.example-tree li {
+    margin-top: 0;
+    margin-bottom: 0;
+    list-style-type: none;
+}
+
+section {
+    display: table;
+}
+
+mat-stroked-button {
+    display: table-cell;
+    font-size: 14px;
+    margin-left: 8px;
+    min-width: 120px;
+    display: table-cell;
+    /*width: 490px;*/
+}
+
+.boton {
+    width: 240px;
+    height: 40px;
+}
+
+.subboton {
+    width: 200px;
+    height: 40px;
+}

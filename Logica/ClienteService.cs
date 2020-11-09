@@ -132,7 +132,7 @@ namespace Logica
             {
                 connectionManager.Open();
                 clienteRepository.Modificar(clienteNuevo);
-                return $"REGISTRO MODIFICADO CORECTAMENTE";
+                return $"REGISTRO MODIFICADO CORRECTAMENTE";
             }
             catch (Exception)
             {

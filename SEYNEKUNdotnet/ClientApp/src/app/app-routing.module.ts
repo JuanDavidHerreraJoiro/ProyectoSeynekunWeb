@@ -5,11 +5,11 @@ import { LoginComponent } from './seynekun/login/login.component';
 import { LoginRegistroComponent } from './seynekun/login-registro/login-registro.component';
 import { ClienteRegistroComponent } from './seynekun/cliente-registro/cliente-registro.component';
 import { ClienteConsultarComponent } from './seynekun/cliente-consultar/cliente-consultar.component';
-import { ClienteModificarEliminarComponent } from './seynekun/cliente-modificar-eliminar/cliente-modificar-eliminar.component';
 import { InterfazInicialComponent } from './seynekun/interfaz-inicial/interfaz-inicial.component';
 import { HomeSeynekunComponent } from './seynekun/home-seynekun/home-seynekun.component';
 
 import { Routes, RouterModule } from '@angular/router';
+import { ClienteModificarEliminarComponent } from './seynekun/cliente-modificar-eliminar/cliente-modificar-eliminar.component';
 
 const routes: Routes = [
     {

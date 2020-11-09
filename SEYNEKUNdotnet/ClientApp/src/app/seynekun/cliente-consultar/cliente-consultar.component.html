@@ -1,47 +1,123 @@
-<p>cliente-consultar works!</p>
+<mat-drawer-container class="example-container" [hasBackdrop]="true">
+  <mat-drawer #drawer mode="push">
+    <mat-nav-list width="120 text-center">
+      <!-- rounded-circle -->
+      <div class="bottom-border pb-2 py-2">
+        <img
+          mat-list-item
+          src="../assets/img_avatar.png"
+          width="120"
+          class="rounded-circle mr-3 mb-3 d-block mx-auto text-center"
+        />
+      </div>
+      <!--  /routerLink="/dashboard" -->
+      <mat-tree
+        [dataSource]="dataSource"
+        [treeControl]="treeControl"
+        class="example-tree"
+      >
+        <!-- This is the tree node template for leaf nodes -->
+        <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
+          <li class="mat-tree-node">
+            <!-- use a disabled button to provide padding for tree leaf -->
+            <!-- <button mat-stroked-button color="primary">Primary</button> -->
 
-<div class="row">
-  <div class="col-6">
-    <input
-      [(ngModel)]="searchText"
-      type="text"
-      class="form-control"
-      placeholder="Type to filter"
-    />
-  </div>
-</div>
+            <button mat-icon-button disabled color="primary"></button>
+            <section>
+              <button
+                mat-stroked-button
+                color="primary"
+                class="subboton"
+                routerLink="{{ node.ruta }}"
+              >
+                {{ node.name }}
+              </button>
+            </section>
+          </li>
+        </mat-tree-node>
+        <!-- This is the tree node template for expandable nodes -->
+        <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
+          <li>
+            <div class="mat-tree-node">
+              <button
+                mat-icon-button
+                matTreeNodeToggle
+                [attr.aria-label]="'Toggle ' + node.name"
+              >
+                <mat-icon class="mat-icon-rtl-mirror">
+                  {{
+                    treeControl.isExpanded(node)
+                      ? "expand_more"
+                      : "chevron_right"
+                  }}
+                </mat-icon>
+              </button>
+              <section>
+                <button mat-stroked-button color="primary" class="boton">
+                  {{ node.name }}
+                </button>
+              </section>
+            </div>
+            <ul [class.example-tree-invisible]="!treeControl.isExpanded(node)">
+              <ng-container matTreeNodeOutlet></ng-container>
+            </ul>
+          </li>
+        </mat-nested-tree-node>
+      </mat-tree>
+    </mat-nav-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <button class="btn" (click)="drawer.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <!-- ******** getIdentificacion(searchText) -->
 
-<hr />
-<table class="table table-striped" *ngIf="clientes && clientes.length">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
+    <span class="form-group col-md-7">
+      <label for="inputBuscar">BUSCAR  --></label>
+      <input type="text" id="id" placeholder="IDENTIFICACION" (keyup)="getIdentificacion(searchText.value)" #searchText class="form-group col-md-6" >
+    </span>
+    <br>
 
-      <th scope="col">identificación</th>
+    <table
+      class="table container-fluid"
+      width="100%"
+      *ngIf="clientes && clientes.length"
+    >
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">identificación</th>
+          <th scope="col">Nombre </th>
+          <th scope="col">Apellido</th>
+          <th scope="col">Telefono</th>
+          <th scope="col">Correo</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
 
-      <th scope="col">Nombre </th>
+      <tbody>
+        <tr *ngFor="let cliente of clientes; index as i">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ cliente.identificacion }} </td>
+          <td>{{ cliente.nombre }}</td>
+          <td>{{ cliente.apellido }}</td>
+          <td>{{ cliente.telefono }}</td>
+          <td>{{ cliente.correo }}</td>
+          <td>
+          <button class="btn btn-primary mr-2 bg-success" (click)="update(cliente.identificacion)">Modificar</button>
+          <button class="btn btn-primary mr-2 bg-danger" (click)="delete(cliente.identificacion)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </mat-drawer-content>
+</mat-drawer-container>
 
-      <th scope="col">Apellido</th>
-
-      <th scope="col">Telefono</th>
-
-      <th scope="col">Correo</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr *ngFor="let cliente of clientes; index as i">
-      <th scope="row">{{ i + 1 }}</th>
-
-      <td>{{ cliente.identificacion }} </td>
-
-      <td>{{ cliente.nombre }}</td>
-
-      <td>{{ cliente.apellido }}</td>
-
-      <td>{{ cliente.telefono }}</td>
-
-      <td>{{ cliente.correo }}</td>
-    </tr>
-  </tbody>
-</table>
+<script>
+function myFunction() {
+  var x = document.getElementById("id").value;
+  if(x == ""){
+  ngOnInit();
+  }
+}
+</script>

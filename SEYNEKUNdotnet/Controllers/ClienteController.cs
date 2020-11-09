@@ -54,6 +54,33 @@ namespace SEYNEKUNdotnet.Controllers
             }
             return Ok(response.Cliente);
         }
+
+        // PUT: api/Cliente
+        [HttpPut("{identificacion}")]
+        public ActionResult<string> Put(string identificacion, ClienteUpdateModel ClienteUpdateModel)
+        {
+            var id = _clienteService.Consultar(identificacion);
+            if (id == null)
+            {
+                return BadRequest("NO ENCONTRADO");
+            }
+            Cliente cliente = MapearClienteUpdate(ClienteUpdateModel,identificacion);
+            var mensaje = _clienteService.Modificar(cliente);
+            return Ok(mensaje);
+        }
+
+        private Cliente MapearClienteUpdate(ClienteUpdateModel ClienteUpdateModel, string identificacion){
+            var cliente = new Cliente
+            {
+                Identificacion =  identificacion,
+                Nombre = ClienteUpdateModel.Nombre,
+                Apellido = ClienteUpdateModel.Apellido,
+                Telefono = ClienteUpdateModel.Telefono,
+                Correo = ClienteUpdateModel.Correo 
+            };
+            return cliente;
+        }
+
         // DELETE: api/cliente/5
         [HttpDelete("{identificacion}")]
         public ActionResult<string> Delete(string identificacion)
